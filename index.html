@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Age Difference Calculator</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- <link href="https://unpkg.com/flowbite@1.4.7/dist/datepicker.min.css" rel="stylesheet"> -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -19,7 +18,12 @@
                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                     </svg>
                 </div>
-                <input datepicker datepicker-buttons datepicker-autoselect-today datepicker-autohide id="date1" datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Select date">
+                <input datepicker datepicker-buttons datepicker-autoselect-today datepicker-autohide id="date1" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Select date">
+                <button onclick="clearDate('date1')" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
             </div>
             <div class="relative max-w-sm mx-auto">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -27,7 +31,12 @@
                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                     </svg>
                 </div>
-                <input datepicker datepicker-buttons datepicker-autoselect-today datepicker-autohide id="date2" datepicker type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  " placeholder="Select date">
+                <input datepicker datepicker-buttons datepicker-autoselect-today datepicker-autohide id="date2" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Select date">
+                <button onclick="clearDate('date2')" class="absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
             </div>
         </div>
         <button onclick="calculateDifference()" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded-lg w-full hover:bg-blue-600 transition">Calculate</button>
@@ -50,11 +59,8 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://unpkg.com/flowbite@1.4.7/dist/datepicker.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
-
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -65,6 +71,14 @@
                 // Add any custom options here if needed
             });
         });
+
+        function clearDate(inputId) {
+            document.getElementById(inputId).value = '';
+            document.getElementById('yearsOutput').innerText = '';
+            document.getElementById('monthsOutput').innerText = '';
+            document.getElementById('weeksOutput').innerText = '';
+            document.getElementById('daysOutput').innerText = '';
+        }
     </script>
 </body>
 </html>
